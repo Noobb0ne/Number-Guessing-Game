@@ -1,0 +1,29 @@
+import random
+toprange = input("Input the highest possible number you want to guess: ")
+if toprange.isdigit():
+  toprange = int(toprange)
+  if toprange <= 0:
+    print("Please enter a number greator than 0 next time.")
+    quit()
+else:
+  print("Please type natural numbers only.")
+  quit()
+num = random.randint(0,toprange)
+guesses = 0
+while True:
+  guesses += 1
+  userguess = input("Make a guess: ")
+  if userguess.isdigit():
+    userguess = int(userguess)
+  else:
+    print("Try again.")
+    continue
+  
+  if userguess == num:
+    break 
+  elif userguess > num:
+    print("You were above the number.")
+  else:
+     print("You were below the number.")
+
+print("You got it in ",guesses," guesses.")
